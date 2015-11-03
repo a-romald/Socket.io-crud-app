@@ -1,0 +1,84 @@
+extends layout
+
+block heading
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script(type='text/javascript', src='/javascripts/client.js')
+
+block content
+    section.top
+      div#messages
+
+    a(href='/add' class='add_tag') Add Tag
+
+    section.tags           
+
+    section#nameform.modal
+      div.backdrop
+      div.popup
+        div.pophead Please enter a nickname
+        div.popbody
+          input#nickname(type='text')
+          input#setname(type='button', value='Set Name')
+
+    section#tagform.modal
+      div.backdrop
+      div.popup1
+        div.pophead Please enter your data
+        div.popbody
+          div.div_errors
+          label Title
+          p
+            input#add_title(type='text' required)
+          label Description
+          p
+            textarea#add_description(name="description"
+              cols="30"
+              rows="3"
+              required)
+          br
+          input#set_tag(type='button', value='Add Tag')
+          input#close_add_tag(type='button', value='Close Tag')
+
+    section#taginfo.modal
+      div.backdrop
+      div.popup1
+        div.pophead Tag data
+        div.popbody
+          h6 ID
+          p#tag_id
+          h6 Title
+          p#tag_title
+          h6 Description
+          p#tag_description
+          br
+          input#close_tag(type='button', value='Close Tag')
+
+    section#tagempty.modal
+      div.backdrop
+      div.popup1
+        div.pophead Tag data
+        div.popbody
+          div.empty_mes         
+          br
+          input#close_tag2(type='button', value='Close Tag')
+
+    section#tagedit.modal
+      div.backdrop
+      div.popup1
+        div.pophead Please edit your data
+        div.popbody
+          div.div_errors
+          h6 ID
+          p#edit_tag_id
+          p
+            h6 Title
+          input#edit_title(type='text' required)
+          p
+            h6 Description
+          textarea#edit_description(name="description"
+            cols="30"
+            rows="3"
+            required)
+          br
+          input#edit_tag(type='button', value='Edit Tag')
+          input#close_edit_tag(type='button', value='Close Tag')
